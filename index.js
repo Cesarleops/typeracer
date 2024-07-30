@@ -1,9 +1,9 @@
-import { onKeyPress, onKeyUp } from "./controls/index.js";
+// import { onKeyPress, onKeyUp } from "./controls/index.js";
+import { Game } from "./game/index.js";
 
 const DEFAULT_TIME = 30;
 
-let words = [];
-
+let game = {};
 let currentTime = DEFAULT_TIME;
 
 export const mainState = {
@@ -14,29 +14,31 @@ export const mainState = {
 let paragraphEl = document.querySelector("p");
 let inputEl = document.querySelector("input");
 let TEXT =
-  "back in highschool i use to bus into the dance, now i hit the fbo with duffles in my hands";
+  "abc state stand they or set say through open begin must play give again part own call so this much follow over think first even write see we man then be after program must also it year more begin can if line time over what get run public";
 
 function startGame() {
-  words = TEXT.split(" ").slice(0, 32);
-  inputEl = "";
-  document.querySelector(".streak").textContent = mainState.wordsStreak;
-  document.querySelector("time").textContent = currentTime;
-  paragraphEl.innerHTML = words
-    .map((w) => {
-      const letters = w.split("");
+  game = new Game(TEXT);
+  game.startGame();
+  //   words = TEXT.split(" ");
+  //   inputEl = "";
+  //   document.querySelector(".streak").textContent = mainState.wordsStreak;
+  //   document.querySelector("time").textContent = currentTime;
+  //   paragraphEl.innerHTML = words
+  //     .map((w) => {
+  //       const letters = w.split("");
 
-      return `<span class="word">
-    ${letters.map((l) => `<span class="letter">${l}</span>`).join("")}
-</span>`;
-    })
-    .join("");
+  //       return `<span class="word">
+  //     ${letters.map((l) => `<span class="letter">${l}</span>`).join("")}
+  // </span>`;
+  //     })
+  //     .join("");
 
-  const firstWord = document.querySelector(".word");
-  const firstLetter = document.querySelector(".letter");
-  mainState.currentLetter = firstLetter;
-  mainState.currentWord = firstWord;
-  firstWord.classList.add("active");
-  firstWord.querySelector(".letter").classList.add("active");
+  //   const firstWord = document.querySelector(".word");
+  //   const firstLetter = document.querySelector(".letter");
+  //   mainState.currentLetter = firstLetter;
+  //   mainState.currentWord = firstWord;
+  //   firstWord.classList.add("active");
+  //   firstWord.querySelector(".letter").classList.add("active");
 }
 
 function startEvents() {
@@ -49,8 +51,8 @@ function startEvents() {
     }
   }, 1000);
 }
-inputEl.addEventListener("keydown", onKeyPress);
-inputEl.addEventListener("keyup", onKeyUp);
+// inputEl.addEventListener("keydown", onKeyPress);
+inputEl.addEventListener("keyup", (e) => game.handleType(e));
 
 startGame();
 startEvents();

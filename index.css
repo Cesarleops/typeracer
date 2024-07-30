@@ -32,7 +32,7 @@ time {
 }
 
 p {
-  font-size: 16px;
+  font-size: 24px;
   color: gray;
 }
 
@@ -47,8 +47,15 @@ p {
 }
 
 .word {
+  border-bottom: 1.5px solid transparent;
+  padding: 0;
+  margin: 0;
+  transition: border-color 0.3s ease-in-out;
   &.active {
     color: white;
+  }
+  &.marked {
+    border-color: red;
   }
 }
 
@@ -56,13 +63,31 @@ input {
   /* opacity: 0; */
 }
 .letter {
-  &.active {
+  position: relative;
+
+  &.active::before {
+    content: "|";
     color: yellow;
+    font-size: 14px;
+    position: absolute;
+    left: -65%;
+    animation: 1s blink infinite ease-in-out;
   }
   &.correct {
     color: lime;
   }
   &.incorrect {
     color: red;
+  }
+}
+
+@keyframes blink {
+  0%,
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
   }
 }
