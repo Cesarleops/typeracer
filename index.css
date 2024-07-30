@@ -1,7 +1,7 @@
 html {
   width: 100vw;
   height: 100vh;
-  background-color: #ffe8d1;
+  background-color: black;
 }
 
 body {
@@ -16,6 +16,7 @@ main {
 header {
   font-size: 20px;
   font-weight: 700;
+  color: white;
 }
 
 time {
@@ -32,7 +33,7 @@ time {
 
 p {
   font-size: 16px;
-  color: black;
+  color: gray;
 }
 
 .stats {
@@ -47,6 +48,21 @@ p {
 
 .word {
   &.active {
+    color: white;
+  }
+}
+
+input {
+  /* opacity: 0; */
+}
+.letter {
+  &.active {
+    color: yellow;
+  }
+  &.correct {
     color: lime;
+  }
+  &.incorrect {
+    color: red;
   }
 }

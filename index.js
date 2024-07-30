@@ -1,4 +1,4 @@
-import { onKeyPress } from "./controls/index.js";
+import { onKeyPress, onKeyUp } from "./controls/index.js";
 
 const DEFAULT_TIME = 30;
 
@@ -12,10 +12,13 @@ export const mainState = {
   currentWord: "",
 };
 let paragraphEl = document.querySelector("p");
+let inputEl = document.querySelector("input");
 let TEXT =
   "back in highschool i use to bus into the dance, now i hit the fbo with duffles in my hands";
+
 function startGame() {
   words = TEXT.split(" ").slice(0, 32);
+  inputEl = "";
   document.querySelector(".streak").textContent = mainState.wordsStreak;
   document.querySelector("time").textContent = currentTime;
   paragraphEl.innerHTML = words
@@ -27,6 +30,13 @@ function startGame() {
 </span>`;
     })
     .join("");
+
+  const firstWord = document.querySelector(".word");
+  const firstLetter = document.querySelector(".letter");
+  mainState.currentLetter = firstLetter;
+  mainState.currentWord = firstWord;
+  firstWord.classList.add("active");
+  firstWord.querySelector(".letter").classList.add("active");
 }
 
 function startEvents() {
@@ -38,13 +48,9 @@ function startEvents() {
       clearInterval(intervalId);
     }
   }, 1000);
-
-  const firstWord = document.querySelector(".word");
-  const firstLetter = document.querySelector(".letter");
-  mainState.currentLetter = firstLetter.textContent;
-  firstWord.classList.add("active");
 }
+inputEl.addEventListener("keydown", onKeyPress);
+inputEl.addEventListener("keyup", onKeyUp);
 
-document.addEventListener("keydown", onKeyPress);
 startGame();
 startEvents();
