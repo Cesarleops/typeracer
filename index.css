@@ -68,11 +68,21 @@ input {
   &.active::before {
     content: "|";
     color: yellow;
-    font-size: 14px;
+    font-size: 24px;
     position: absolute;
     left: -65%;
     animation: 1s blink infinite ease-in-out;
   }
+
+  &.last::before {
+    content: "|";
+    color: yellow;
+    font-size: 24px;
+    position: absolute;
+    left: 65%;
+    animation: 1s blink infinite ease-in-out;
+  }
+
   &.correct {
     color: lime;
   }

@@ -6,12 +6,6 @@ const DEFAULT_TIME = 30;
 let game = {};
 let currentTime = DEFAULT_TIME;
 
-export const mainState = {
-  currentLetter: "",
-  wordsStreak: 0,
-  currentWord: "",
-};
-let paragraphEl = document.querySelector("p");
 let inputEl = document.querySelector("input");
 let TEXT =
   "abc state stand they or set say through open begin must play give again part own call so this much follow over think first even write see we man then be after program must also it year more begin can if line time over what get run public";
