@@ -1,4 +1,3 @@
-// import { onKeyPress, onKeyUp } from "./controls/index.js";
 import { Game } from "./game/index.js";
 
 const DEFAULT_TIME = 30;

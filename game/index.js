@@ -99,8 +99,10 @@ export class Game {
 
       if (!currentWordEl.classList.contains("marked")) {
         this.streak++;
+        document.querySelector(".streak").textContent = this.streak;
       } else {
         this.streak = 0;
+        document.querySelector(".streak").textContent = this.streak;
       }
       this.currentWordIdx++;
       this.currentLetterIdx = 0;
