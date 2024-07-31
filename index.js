@@ -19,26 +19,6 @@ let TEXT =
 function startGame() {
   game = new Game(TEXT);
   game.startGame();
-  //   words = TEXT.split(" ");
-  //   inputEl = "";
-  //   document.querySelector(".streak").textContent = mainState.wordsStreak;
-  //   document.querySelector("time").textContent = currentTime;
-  //   paragraphEl.innerHTML = words
-  //     .map((w) => {
-  //       const letters = w.split("");
-
-  //       return `<span class="word">
-  //     ${letters.map((l) => `<span class="letter">${l}</span>`).join("")}
-  // </span>`;
-  //     })
-  //     .join("");
-
-  //   const firstWord = document.querySelector(".word");
-  //   const firstLetter = document.querySelector(".letter");
-  //   mainState.currentLetter = firstLetter;
-  //   mainState.currentWord = firstWord;
-  //   firstWord.classList.add("active");
-  //   firstWord.querySelector(".letter").classList.add("active");
 }
 
 function startEvents() {
