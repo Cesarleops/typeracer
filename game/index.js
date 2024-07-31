@@ -120,6 +120,7 @@ export class Game {
         .querySelectorAll(".letter")
         [this.currentLetterIdx].classList.add("incorrect");
     }
+
     currentWordLetters[this.currentLetterIdx].classList.remove("active");
     this.currentLetterIdx++;
 
