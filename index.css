@@ -109,6 +109,16 @@ input {
   }
 }
 
+.endgame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.endgame .text {
+  max-width: 100%;
+}
+
 @keyframes blink {
   0%,
   25% {

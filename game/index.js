@@ -58,6 +58,18 @@ export class Game {
     }
 
     currentWordLetters[this.currentLetterIdx].classList.remove("active");
+    if (
+      this.currentLetterIdx === currentWord.length - 1 &&
+      this.currentWordIdx === this.words.length - 1
+    ) {
+      console.log("you get to the last letter of the last word");
+      currentWordLetters[this.currentLetterIdx].classList.add("last");
+
+      document.querySelector(".game").innerHTML = `<div class="endgame">
+        <p class="text">Game Ended </p>
+      </div>`;
+      return;
+    }
     this.currentLetterIdx++;
 
     if (this.currentLetterIdx === currentWordLetters.length) {
@@ -111,6 +123,10 @@ export class Game {
 
   handleSpace(e, currentWordEl, currentWord, currentWordLetters) {
     e.preventDefault();
+    if (this.currentWordIdx === this.words.length - 1) {
+      console.log("no puedes saltar mas");
+      return;
+    }
     document.querySelector("input").value = "";
     if (this.currentLetterIdx < currentWord.length) {
       currentWordLetters[this.currentLetterIdx].classList.remove("active");
