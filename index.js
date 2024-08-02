@@ -1,4 +1,5 @@
 import { Game } from "./game/index.js";
+import { generateRandomPhrase } from "./utils/index.js";
 
 const DEFAULT_TIME = 30;
 
@@ -39,6 +40,7 @@ gameTable.addEventListener("click", () => {
 
 restart.addEventListener("click", () => {
   console.log("start new game");
+  TEXT = generateRandomPhrase(48);
   startGame();
 });
 

@@ -1,0 +1,56 @@
+export function generateRandomPhrase(phraseLength) {
+  const randomWords = [
+    "ocean",
+    "mountain",
+    "river",
+    "forest",
+    "desert",
+    "cloud",
+    "rain",
+    "storm",
+    "sunshine",
+    "moonlight",
+    "starlight",
+    "comet",
+    "galaxy",
+    "planet",
+    "asteroid",
+    "nebula",
+    "blackhole",
+    "universe",
+    "atom",
+    "molecule",
+    "particle",
+    "electron",
+    "proton",
+    "neutron",
+    "quark",
+    "gluon",
+    "photon",
+    "gravity",
+    "magnetism",
+    "electricity",
+    "energy",
+    "matter",
+    "antimatter",
+    "biology",
+    "chemistry",
+    "physics",
+    "geology",
+    "astronomy",
+    "zoology",
+    "botany",
+    "meteorology",
+    "ecology",
+    "genetics",
+    "evolution",
+    "neuroscience",
+    "psychology",
+  ];
+  let phrase = "";
+  for (let i = 0; i < phraseLength; i++) {
+    const randomIndex = Math.floor(Math.random() * randomWords.length);
+    phrase += randomWords[randomIndex] + " ";
+  }
+  return phrase.trim();
+}
