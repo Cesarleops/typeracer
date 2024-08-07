@@ -1,6 +1,7 @@
 html {
   width: 100vw;
   height: 100vh;
+  background-color: #2d2d2d;
 }
 
 body {
@@ -13,9 +14,11 @@ main {
 }
 
 header {
-  font-size: 20px;
+  font-size: 26px;
+  padding-left: 10px;
+  padding-top: 5px;
   font-weight: 700;
-  color: black;
+  color: white;
 }
 
 time {
@@ -24,10 +27,9 @@ time {
 
 .time {
   font-size: 16px;
-  color: #2e86ab;
   padding: 10px;
-  border: 1px solid #2e86ab;
   border-radius: 10px;
+  background-color: #353cea;
 }
 
 .game {
@@ -38,29 +40,48 @@ time {
   height: 100%;
 }
 
-p {
+.gametext {
   font-size: 24px;
   color: gray;
-  border: 1px solid gray;
   border-radius: 50px;
   max-width: 50%;
   display: flex;
+
   padding: 50px;
   gap: 10px;
   flex-wrap: wrap;
+  background-color: #404040;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px;
+  background-color: #fca404;
+  color: white;
+  border-radius: 10px;
+}
+
+.buttons p {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0px;
+  padding: 0px;
 }
 
 .stats {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-weight: 700;
 }
 .stats .text {
-  color: #2e86ab;
   padding: 10px;
-  border: 1px solid #2e86ab;
   border-radius: 10px;
   font-size: 16px;
+  background-color: #353cea;
 }
 
 .word {
@@ -85,7 +106,7 @@ input {
 
   &.active::before {
     content: "|";
-    color: orchid;
+    color: yellow;
     font-size: 24px;
     position: absolute;
     left: -65%;
@@ -94,7 +115,7 @@ input {
 
   &.last::before {
     content: "|";
-    color: orchid;
+    color: yellow;
     font-size: 24px;
     position: absolute;
     left: 65%;
@@ -112,10 +133,34 @@ input {
 .endgame {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  flex-direction: column;
+  background-color: #404040;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 50px;
+}
+
+.topstreak {
+  color: #a085ec;
+}
+
+.finishtime {
+  color: #a085ec;
+}
+
+.restart {
+  padding: 5px;
+  border-radius: 10px;
+  align-self: center;
+  background-color: orchid;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .endgame .text {
+  color: #f55;
   max-width: 100%;
 }
 

@@ -5,6 +5,7 @@ export class Game {
     this.currentWordIdx = 0;
     this.currentLetterIdx = 0;
     this.streak = 0;
+    this.topStreak = 0;
   }
 
   startGame() {
@@ -63,11 +64,23 @@ export class Game {
       this.currentWordIdx === this.words.length - 1
     ) {
       console.log("you get to the last letter of the last word");
+      if (this.streak > this.topStreak) {
+        console.log("it was superated");
+        console.log("tt", this.streak);
+        this.topStreak = this.streak;
+      }
       currentWordLetters[this.currentLetterIdx].classList.add("last");
-
+      const time = document.querySelector("time").textContent;
+      console.log("time", time);
       document.querySelector(".game").innerHTML = `<div class="endgame">
         <p class="text">Game Ended </p>
+        <p class="topstreak">TOP STREAK:${this.topStreak}</p>
+        <p class="finishtime">YOUR TIME: ${time} SECONDS</p>
+        <button class="restart">Restart game</button>
       </div>`;
+      document.querySelector(".restart").addEventListener("click", () => {
+        window.location.reload();
+      });
       return;
     }
     this.currentLetterIdx++;
@@ -145,6 +158,11 @@ export class Game {
       this.streak++;
       document.querySelector(".streak").textContent = this.streak;
     } else {
+      if (this.streak > this.topStreak) {
+        console.log("it was superated");
+        console.log("tt", this.streak);
+        this.topStreak = this.streak;
+      }
       this.streak = 0;
       document.querySelector(".streak").textContent = this.streak;
     }

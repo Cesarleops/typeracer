@@ -1,7 +1,7 @@
 import { Game } from "./game/index.js";
 import { generateRandomPhrase } from "./utils/index.js";
 
-const DEFAULT_TIME = 30;
+const DEFAULT_TIME = 0;
 
 let game = {};
 let currentTime = DEFAULT_TIME;
@@ -18,18 +18,21 @@ function startGame() {
 }
 
 function startEvents() {
+  document.querySelector("time").innerHTML = currentTime;
+
   const intervalId = setInterval(() => {
-    currentTime--;
+    currentTime++;
 
     if (!document.querySelector(".time")) {
       clearInterval(intervalId);
       return;
     }
+
     document.querySelector("time").innerHTML = currentTime;
 
-    if (currentTime === 0) {
-      clearInterval(intervalId);
-    }
+    // if (currentTime === 0) {
+    //   clearInterval(intervalId);
+    // }
   }, 1000);
 }
 // inputEl.addEventListener("keydown", onKeyPress);
@@ -40,9 +43,11 @@ gameTable.addEventListener("click", () => {
 
 restart.addEventListener("click", () => {
   console.log("start new game");
+  currentTime = 0;
   TEXT = generateRandomPhrase(48);
   startGame();
 });
 
-startGame();
 startEvents();
+
+startGame();
